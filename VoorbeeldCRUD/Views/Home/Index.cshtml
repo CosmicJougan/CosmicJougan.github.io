@@ -1,0 +1,46 @@
+﻿@model KlantRepository;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Klanten</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body class="m-3">
+    <h2>Overzicht van alle klanten</h2>
+    <table class="table">
+        <tr>
+            <td>
+                id
+            </td>
+            <td>
+                naam
+            </td>
+            <td>
+                saldo
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach (var x in Model.Klanten){
+            <tr>
+                <td>
+                    @x.Id
+                </td>
+                <td>
+                    @x.Naam
+                </td>
+                <td>
+                    € @x.Saldo
+                </td>
+                <td><a asp-action="Delete" asp-route-KlantID="@x.Id" class="geenLijn">Verwijder</a></td>
+                <td><a asp-action="Update" asp-route-KlantID="@x.Id" class="geenLijn">Aanpassen</a></td>
+            </tr>
+        }
+    </table>
+    <p><a asp-action="Insert" class="geenLijn">Een nieuwe klant toe voegen...</a></p>
+</body>
+</html>

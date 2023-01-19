@@ -1,0 +1,35 @@
+﻿@model klant;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Klant gegevens aanpassen</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body class="m-3">
+    <form asp-action="Update" asp-controller="Home">
+        <h2>Klant gegevens aanpassen</h2>
+        <table class="table">
+            <tr>
+                <td>ID</td>
+                <td><input type="text" asp-for="Id" readonly="readonly"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Naam</td>
+                <td><input type="text" asp-for="Naam" /></td>
+                <td><span asp-validation-for="Naam" class="Fout"></span></td>
+            </tr>
+            <tr>
+                <td>Saldo</td>
+                <td><input type="text" asp-for="Saldo" /></td>
+                <td><span asp-validation-for="Saldo" class="Fout"></span></td>
+            </tr>
+        </table>
+        <p><input type="submit" value="Sla gegevens op..." class="btn-success"</p>
+    </form>
+</body>
+</html>
